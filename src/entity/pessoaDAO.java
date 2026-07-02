@@ -20,10 +20,10 @@ public class pessoaDAO {
 
             insertPs.setString(1, nome);
             insertPs.setString(2, cpf);
-            insertPs.setString(3, "maria@email.com");
-            insertPs.setDate(4, java.sql.Date.valueOf("1995-10-20"));
-            insertPs.setString(5, "F");
-            insertPs.setString(6, "Gerente");
+            insertPs.setString(3, email);
+            insertPs.setDate(4, java.sql.Date.valueOf(dataNasc));
+            insertPs.setString(5, sexo);
+            insertPs.setString(6, cargo);
 
             int insertCount = insertPs.executeUpdate();
         }
