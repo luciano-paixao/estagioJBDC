@@ -1,4 +1,4 @@
-package entity;
+package DA0;
 
 import conexao.Conexao;
 
@@ -20,7 +20,7 @@ public class estagioDAO {
 
         executarEImprimir(sql, "Empresas com mais estagiários vinculados");
     }
-    // exemplo de metodo de consulta que recebe um valor /CLAUDE PASSOU POR AQUI...
+    // exemplo de metodo de consuDAlta que recebe um valor /CLAUDE PASSOU POR AQUI...
     public void alunosPorEmpresa(String razaoSocial) {
         String sql = "SELECT p.nome, p.sobrenome, e.statusEstagio " +
                 "FROM Estagio e " +
