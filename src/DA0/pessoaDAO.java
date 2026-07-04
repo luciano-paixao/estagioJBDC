@@ -1,12 +1,12 @@
 package entity;
 
 import conexao.Conexao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import models.pessoa.Pessoa;
 
 public class pessoaDAO {
     public void cadastrarPessoa(Pessoa p) {
@@ -16,12 +16,12 @@ public class pessoaDAO {
 
         try(PreparedStatement insertPs = conexao.prepareStatement(sql)) {
 
-            insertPs.setString(1, p.nome);
-            insertPs.setString(2, p.cpf);
-            insertPs.setString(3, p.email);
-            insertPs.setDate(4, java.sql.Date.valueOf(p.dataNasc));
-            insertPs.setString(5, p.sexo);
-            insertPs.setString(6, p.cargo);
+            insertPs.setString(1, p.getNome());
+            insertPs.setString(2, p.getCpf());
+            insertPs.setString(3, p.getEmail());
+            insertPs.setDate(4, java.sql.Date.valueOf(p.getDataNasc()));
+            insertPs.setString(5, p.getSexo());
+            insertPs.setString(6, p.getCargo());
 
             int insertCount = insertPs.executeUpdate();
         }

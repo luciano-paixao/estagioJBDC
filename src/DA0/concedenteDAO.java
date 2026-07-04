@@ -1,19 +1,24 @@
 package entity;
 
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import models.concedente.Concedente;
 
 public class concedenteDAO {
-      public void cadastrarConcedente(Concedente c) {
+    public void cadastrarConcedente(Concedente c) {
         String sql = "INSERT INTO concedente(nome, cnpj, tipo, area_atuacao) VALUES (" +
                 "?, ?, ?, ?" +
                 ")";
 
         try(PreparedStatement insertPs = conexao.prepareStatement(sql)) {
 
-            insertPs.setString(1, c.nome);
-            insertPs.setString(2, c.cnpj);
-            insertPs.setString(3, c.tipo);
-            insertPs.setDate(4, c.area_atuacao);
+            insertPs.setString(1, c.getNome());
+            insertPs.setString(2, c.getCnpj());
+            insertPs.setString(3, c.getTipo());
+
+            // Atenção: se area de atuacao for texto no banco, mude setDate para setString
+            insertPs.setDate(4, c.getAreaAtuacao());
 
             int insertCount = insertPs.executeUpdate();
         }

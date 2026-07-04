@@ -1,16 +1,21 @@
 package entity;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import models.relatorioFinal.RelatorioFinal;
+
 public class relatorioFinalDAO {
     public void cadastrarRelatorioFinal(RelatorioFinal rel) {
         String sql = "INSERT INTO plano_atividade(arquivo, titulo, assinatura_discente, assinatura_supervisor, id_estagio) VALUES(" +
-                    "?, ?, ?, ?, ?" +
-                    ")";
+                "?, ?, ?, ?, ?" +
+                ")";
         try(PreparedStatement insertPs = conexao.prepareStatement(sql)) {
-            insertPs.setString(1, rel.arquivo);
-            insertPs.setString(2, rel.titulo);
+
+            insertPs.setString(1, rel.getArquivo());
+            insertPs.setString(2, rel.getTitulo());
             insertPs.setBoolean(3, true);
             insertPs.setBoolean(4, true);
-            insertPs.setInt(5, rel.idEstagio);
+            insertPs.setInt(5, rel.getIdEstagio());
 
             int insertCount = insertPs.executeUpdate();
         } catch(SQLException e) {
