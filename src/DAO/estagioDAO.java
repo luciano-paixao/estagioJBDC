@@ -1,6 +1,6 @@
-package DA0;
+package DAO;
 
-import conexao.Conexao;
+import database.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -72,5 +72,4 @@ public class estagioDAO {
             System.out.println("Erro ao executar consulta [" + titulo + "]: " + e.getMessage());
         }
     }
-
 }
