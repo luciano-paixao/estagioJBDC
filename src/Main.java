@@ -1,15 +1,22 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import controller.DiscenteController;
+import view.TelaCadastroDiscente;
+
+import javax.swing.SwingUtilities;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                // Instancia a tela (carrega o visual e os componentes)
+                TelaCadastroDiscente tela = new TelaCadastroDiscente();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+                // Instancia o Controller passando a tela para ele amarrar os eventos (cliques nos botões)
+                DiscenteController controller = new DiscenteController(tela);
+
+                // Torna a janela visível para o usuário
+                tela.setVisible(true);
+            }
+        });
     }
 }
