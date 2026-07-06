@@ -8,7 +8,7 @@ import models.estagio.Estagio;
 public class AproveitamentoProfissional {
 
     private int idAproveitamento;
-    private models.aproveitamentoProfissional.CondicaoProfissional condicao;
+    private CondicaoProfissional condicao;
     private String cargoExercido;
     private int cargaHoraria;
     private StatusDeferimento statusDeferimento;
