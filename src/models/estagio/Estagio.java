@@ -12,10 +12,7 @@ public class Estagio {
     private int idEstagio;
     private TipoEstagio tipo;
     private AmbitoEstagio ambito;
-    private Integer cargaHoraria;
     private StatusEstagio status;
-    private LocalDate dataInicio;
-    private LocalDate dataFim;
     private String observacoes;
     private Discente discente;
     private SupervisorConcedente supervisorConcedente;
@@ -31,10 +28,7 @@ public class Estagio {
                     CoordenadorEstagio coordenadorEstagio, Concedente concedente, PeriodoLetivo periodoLetivo) {
         this.tipo = tipo;
         this.ambito = ambito;
-        this.cargaHoraria = cargaHoraria;
         this.status = status;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
         this.observacoes = observacoes;
         this.discente = discente;
         this.supervisorConcedente = supervisorConcedente;
@@ -67,36 +61,12 @@ public class Estagio {
         this.ambito = ambito;
     }
 
-    public Integer getCargaHoraria() {
-        return cargaHoraria;
-    }
-
-    public void setCargaHoraria(Integer cargaHoraria) {
-        this.cargaHoraria = cargaHoraria;
-    }
-
     public StatusEstagio getStatus() {
         return status;
     }
 
     public void setStatus(StatusEstagio status) {
         this.status = status;
-    }
-
-    public LocalDate getDataInicio() {
-        return dataInicio;
-    }
-
-    public void setDataInicio(LocalDate dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public LocalDate getDataFim() {
-        return dataFim;
-    }
-
-    public void setDataFim(LocalDate dataFim) {
-        this.dataFim = dataFim;
     }
 
     public String getObservacoes() {
