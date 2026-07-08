@@ -1,12 +1,23 @@
 package DAO;
 
 import conexao.Conexao;
+import models.concedente.Concedente;
+import models.coordenadorEstagio.CoordenadorEstagio;
+import models.discente.Discente;
+import models.estagio.AmbitoEstagio;
+import models.estagio.Estagio;
+import models.estagio.StatusEstagio;
+import models.estagio.TipoEstagio;
+import models.periodoLetivo.PeriodoLetivo;
+import models.supervisorConcedente.SupervisorConcedente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EstagioDAO {
 
@@ -43,6 +54,74 @@ public class EstagioDAO {
         } catch (SQLException e) {
             System.out.println("Erro ao consultar alunos por empresa: " + e.getMessage());
         }
+    }
+
+    public List<Estagio> listarTodos() {
+        String sql = "SELECT * FROM estagio";
+        List<Estagio> estagios = new ArrayList<>();
+
+        try (Connection con = Conexao.getConexao();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Estagio estagio = new Estagio();
+                estagio.setIdEstagio(getInt(rs, "id_estagio"));
+
+                String tipo = rs.getString("tipo");
+                if (tipo != null) {
+                    estagio.setTipo(TipoEstagio.valueOf(tipo));
+                }
+
+                String ambito = rs.getString("ambito");
+                if (ambito != null) {
+                    estagio.setAmbito(AmbitoEstagio.valueOf(ambito));
+                }
+
+                String status = rs.getString("status");
+                if (status != null) {
+                    estagio.setStatus(StatusEstagio.valueOf(status));
+                }
+
+                estagio.setObservacoes(rs.getString("observacoes"));
+
+                Discente discente = new Discente();
+                discente.setIdDiscente(getInt(rs, "id_discente"));
+                estagio.setDiscente(discente);
+
+                SupervisorConcedente supervisor = new SupervisorConcedente();
+                supervisor.setIdSupervisor(getInt(rs, "id_supervisor", "id_supervisor_concedente"));
+                estagio.setSupervisorConcedente(supervisor);
+
+                CoordenadorEstagio coordenador = new CoordenadorEstagio();
+                coordenador.setIdCoordenadorEstagio(getInt(rs, "id_coordenador_estagio", "id_coordenador"));
+                estagio.setCoordenadorEstagio(coordenador);
+
+                Concedente concedente = new Concedente();
+                concedente.setIdConcedente(getInt(rs, "id_concedente"));
+                estagio.setConcedente(concedente);
+
+                PeriodoLetivo periodoLetivo = new PeriodoLetivo();
+                periodoLetivo.setIdPeriodo(getInt(rs, "id_periodo", "id_periodo_letivo"));
+                estagio.setPeriodoLetivo(periodoLetivo);
+
+                estagios.add(estagio);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return estagios;
+    }
+
+    private int getInt(ResultSet rs, String... columnNames) throws SQLException {
+        for (String columnName : columnNames) {
+            try {
+                return rs.getInt(columnName);
+            } catch (SQLException ignored) {
+            }
+        }
+        return 0;
     }
 
 
