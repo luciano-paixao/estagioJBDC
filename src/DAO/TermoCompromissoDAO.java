@@ -14,7 +14,7 @@ import java.util.List;
 
 public class TermoCompromissoDAO {
 
-    public void cadastrarTermoCompromisso(TermoCompromisso termo, Estagio es, Endereco en) {
+    public void salvar(TermoCompromisso termo, Estagio es, Endereco en) {
         String sql = "INSERT INTO termo_compromisso (horas_semanais, horas_totais, remuneracao, aux_transporte, assinatura_discente, assinatura_coodenadador, assinatura_concedente, data_inicio, data_fim, data_recesso, id_estagio, id_endereco_instituicao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection con = Conexao.getConexao();

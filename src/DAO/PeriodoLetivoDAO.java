@@ -11,7 +11,7 @@ import java.util.List;
 
 public class PeriodoLetivoDAO {
 
-    public void cadastrarPeriodoLetivo(PeriodoLetivo periodoLetivo) {
+    public void salvar(PeriodoLetivo periodoLetivo) {
 
         String sql = "INSERT INTO periodo_letivo (ano, periodo, data_inicio, data_fim) VALUES (" +
                 "?, ?, ?, ?" +

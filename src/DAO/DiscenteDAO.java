@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DiscenteDAO {
-    public void cadastrarDiscente(Discente d, PeriodoLetivo per, Pessoa p) {
+    public void salvar(Discente d, PeriodoLetivo per, Pessoa p) {
         String sql = "INSERT INTO discente(matricula, situacao, curso, id_periodo, id_pessoa) VALUES (" +
                 "?, ?, ?, ?, ?" +
                 ")";

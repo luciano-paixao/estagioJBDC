@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ApoliceSeguroDAO {
 
-    public void cadastrarApoliceSeguro(ApoliceSeguro apolice) {
+    public void salvarApoliceSeguro(ApoliceSeguro apolice) {
         String sql = "INSERT INTO apolice_seguro " +
                 "(numero, responsavel_contratacao, seguradora, data_inicio, data_fim, id_estagio) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";

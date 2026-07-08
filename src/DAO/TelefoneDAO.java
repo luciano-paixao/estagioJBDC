@@ -15,7 +15,7 @@ import java.util.List;
 
 public class TelefoneDAO {
 
-    public void cadastrarTelefone(Telefone telefone) {
+    public void salvar(Telefone telefone) {
         String sql = "INSERT INTO telefone (ddd, numero, tipo, id_concedente, id_pessoa) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection con = Conexao.getConexao();

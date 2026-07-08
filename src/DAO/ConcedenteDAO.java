@@ -14,7 +14,7 @@ import models.endereco.Endereco;
 import models.pessoa.Pessoa;
 
 public class ConcedenteDAO {
-    public void cadastrarConcedente(Concedente c, Endereco en, Pessoa p) {
+    public void salvar(Concedente c, Endereco en, Pessoa p) {
         String sql = "INSERT INTO concedente(nome, cnpj, tipo, area_atuacao, id_endereco, id_representante) VALUES (" +
                 "?, ?, ?, ?, ?, ?" +
                 ")";
