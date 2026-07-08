@@ -27,7 +27,7 @@ public class TelaCadastroEstagio extends JFrame {
     private JFormattedTextField txtDataFim;
     private JTextArea txtObservacoes;
 
-    // --- ComboBoxes agora tipados com os Models Reais ---
+    // --- ComboBoxes agora tipados com os Models ---
     private JComboBox<Discente> cbDiscente;
     private JComboBox<Concedente> cbConcedente;
     private JComboBox<SupervisorConcedente> cbSupervisor;

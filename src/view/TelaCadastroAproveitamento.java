@@ -134,5 +134,86 @@ public class TelaCadastroAproveitamento extends JFrame {
     public JButton getBtnAnexarDocumento() { return btnAnexarDocumento; }
     public JButton getBtnSalvar() { return btnSalvar; }
     public JButton getBtnCancelar() { return btnCancelar; }
+
+    public void setCbDiscente(JComboBox<Discente> cbDiscente) {
+        this.cbDiscente = cbDiscente;
+    }
+
+    public void setCbCoordenador(JComboBox<CoordenadorEstagio> cbCoordenador) {
+        this.cbCoordenador = cbCoordenador;
+    }
+
+    public JComboBox<CondicaoProfissional> getCbCondicao() {
+        return cbCondicao;
+    }
+
+    public void setCbCondicao(JComboBox<CondicaoProfissional> cbCondicao) {
+        this.cbCondicao = cbCondicao;
+    }
+
+    public JComboBox<StatusDeferimento> getCbStatus() {
+        return cbStatus;
+    }
+
+    public void setCbStatus(JComboBox<StatusDeferimento> cbStatus) {
+        this.cbStatus = cbStatus;
+    }
+
+    public JTextField getTxtNomeEmpresa() {
+        return txtNomeEmpresa;
+    }
+
+    public void setTxtNomeEmpresa(JTextField txtNomeEmpresa) {
+        this.txtNomeEmpresa = txtNomeEmpresa;
+    }
+
+    public String getTxtCargoExercido() {
+        return txtCargoExercido.getText();
+    }
+
+    public void setTxtCargoExercido(JTextField txtCargoExercido) {
+        this.txtCargoExercido = txtCargoExercido;
+    }
+
+    public JTextField getTxtCargaHoraria() {
+        return txtCargaHoraria;
+    }
+
+    public void setTxtCargaHoraria(JTextField txtCargaHoraria) {
+        this.txtCargaHoraria = txtCargaHoraria;
+    }
+
+    public JFormattedTextField getTxtDataInicio() {
+        return txtDataInicio;
+    }
+
+    public void setTxtDataInicio(JFormattedTextField txtDataInicio) {
+        this.txtDataInicio = txtDataInicio;
+    }
+
+    public JFormattedTextField getTxtDataFim() {
+        return txtDataFim;
+    }
+
+    public void setTxtDataFim(JFormattedTextField txtDataFim) {
+        this.txtDataFim = txtDataFim;
+    }
+
+    public JTextField getTxtCaminhoDocumento() {
+        return txtCaminhoDocumento;
+    }
+
+    public void setTxtCaminhoDocumento(JTextField txtCaminhoDocumento) {
+        this.txtCaminhoDocumento = txtCaminhoDocumento;
+    }
+
+    public String getTxtRelatorioTecnico() {
+        return txtRelatorioTecnico.getText();
+    }
+
+    public void setTxtRelatorioTecnico(JTextArea txtRelatorioTecnico) {
+        this.txtRelatorioTecnico = txtRelatorioTecnico;
+    }
+
     public void exibirMensagem(String msg) { JOptionPane.showMessageDialog(this, msg); }
 }

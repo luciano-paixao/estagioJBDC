@@ -120,4 +120,8 @@ public class TelaCadastroTermoCompromisso extends JFrame {
 
     public JButton getBtnSalvar() { return btnSalvar; }
     public JButton getBtnCancelar() { return btnCancelar; }
+
+    public void exibirMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(this, mensagem);
+    }
 }

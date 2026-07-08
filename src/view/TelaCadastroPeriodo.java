@@ -1,7 +1,5 @@
 package view;
 
-import models.periodoLetivo.Periodo;
-
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
@@ -10,7 +8,7 @@ import java.text.ParseException;
 public class TelaCadastroPeriodo extends JFrame {
 
     private JTextField txtAno;
-    private JComboBox<Periodo> cbPeriodo;
+    private JTextField txtPeriodo;
     private JFormattedTextField txtDataInicio;
     private JFormattedTextField txtDataFim;
 
@@ -30,7 +28,7 @@ public class TelaCadastroPeriodo extends JFrame {
         painelFormulario.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
         txtAno = new JTextField();
-        cbPeriodo = new JComboBox<>(Periodo.values());
+        txtPeriodo = new JTextField();
 
         // Aplicando máscaras para as Datas
         try {
@@ -48,7 +46,7 @@ public class TelaCadastroPeriodo extends JFrame {
         painelFormulario.add(txtAno);
 
         painelFormulario.add(new JLabel("Período:"));
-        painelFormulario.add(cbPeriodo);
+        painelFormulario.add(txtPeriodo);
 
         painelFormulario.add(new JLabel("Data de Início:"));
         painelFormulario.add(txtDataInicio);
@@ -70,7 +68,7 @@ public class TelaCadastroPeriodo extends JFrame {
 
     // Getters para o Controller
     public String getAno() { return txtAno.getText(); }
-    public Periodo getPeriodoSelecionado() { return (Periodo) cbPeriodo.getSelectedItem(); }
+    public String getPeriodoSelecionado() { return txtPeriodo.getText(); }
     public String getDataInicio() { return txtDataInicio.getText(); }
     public String getDataFim() { return txtDataFim.getText(); }
 
