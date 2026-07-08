@@ -12,7 +12,7 @@ import java.util.List;
 
 public class EnderecoDAO {
 
-    public void cadastrarEndereco(Endereco endereco) {
+    public void salvar(Endereco endereco) {
         String sql = "INSERT INTO endereco (logradouro, estado, cidade, bairro, numero, cep, complemento) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection con = Conexao.getConexao();

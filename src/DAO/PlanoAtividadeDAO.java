@@ -13,7 +13,7 @@ import java.util.List;
 
 public class PlanoAtividadeDAO {
 
-    public void cadastrarPlanoAtividade(PlanoAtividade plano, TermoCompromisso termo) {
+    public void salvar(PlanoAtividade plano, TermoCompromisso termo) {
         String sql = "INSERT INTO plano_atividade (id_termo_compromisso, area_atuacao, justificativa, objetivos, plano_atividades) VALUES (?, ?, ?, ?, ?)";
 
         try(Connection con = Conexao.getConexao();

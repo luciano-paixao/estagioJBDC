@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DocenteDAO {
 
-    public void cadastrarDocente(Docente docente) {
+    public void salvar(Docente docente) {
 
         String sql = "INSERT INTO docente(matricula_siape, departamento, titulacao, id_pessoa) VALUES (" +
                 "?, ?, ?, ?" +

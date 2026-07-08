@@ -3,6 +3,7 @@ package DAO;
 import database.Conexao;
 import models.coordenadorEstagio.CoordenadorEstagio; // Ajuste o import conforme o pacote da sua model
 import models.docente.Docente;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class CoordenadorDAO {
 
-    public void cadastrarCoordenador(CoordenadorEstagio coor) {
+    public void salvar(CoordenadorEstagio coor, Docente doce) {
 
         String sql = "INSERT INTO coordenador_estagio (numero_portaria, data_inicio_vigencia, data_fim_vigencia, id_docente) VALUES (?, ?, ?, ?)";
 
@@ -24,7 +25,7 @@ public class CoordenadorDAO {
             insertPs.setDate(2, java.sql.Date.valueOf(coor.getDataInicioVigencia()));
             insertPs.setDate(3, java.sql.Date.valueOf(coor.getDataFimVigencia()));
 
-            insertPs.setInt(4, coor.getDocente().getIdDocente());
+            insertPs.setInt(4, doce.getIdDocente());
 
             int insertCount = insertPs.executeUpdate();
 
@@ -56,9 +57,7 @@ public class CoordenadorDAO {
                     coordenador.setDataFimVigencia(fim.toLocalDate());
                 }
 
-                Docente docente = new Docente();
-                docente.setIdDocente(getInt(rs, "id_docente"));
-                coordenador.setDocente(docente);
+                coordenador.getDocente().setIdDocente(getInt(rs, "id_docente"));
                 coordenadores.add(coordenador);
             }
         } catch (SQLException e) {

@@ -17,7 +17,7 @@ import java.util.List;
 
 public class AproveitamentoProfissionalDAO {
 
-    public void cadastrarAproveitamento(AproveitamentoProfissional aproveitamento) {
+    public void salvar(AproveitamentoProfissional aproveitamento) {
         String sql = "INSERT INTO aproveitamento_profissional " +
                 "(condicao, cargo_exercido, carga_horaria, status_deferimento, documento_comprobatorio, nome_empresa, " +
                 "data_inicio_atividade, data_fim_atividade, relatorio_tecnico, id_discente, id_coordenador_estagio, id_estagio) " +

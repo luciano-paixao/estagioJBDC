@@ -12,7 +12,7 @@ import models.pessoa.Pessoa;
 import models.pessoa.Sexo;
 
 public class PessoaDAO {
-    public void cadastrarPessoa(Pessoa p) {
+    public void salvar(Pessoa p) {
         String sql = "INSERT INTO pessoa(nome, cpf, email, data_nascimento, sexo, cargo) VALUES (" +
                 "?, ?, ?, ?, ?, ?" +
                 ")";

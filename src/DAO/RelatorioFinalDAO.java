@@ -11,7 +11,7 @@ import database.Conexao;
 import models.relatorioFinal.RelatorioFinal;
 
 public class RelatorioFinalDAO {
-    public void cadastrarRelatorioFinal(RelatorioFinal rel) {
+    public void salvar(RelatorioFinal rel) {
         String sql = "INSERT INTO relatorio_final(arquivo, titulo, assinatura_discente, assinatura_supervisor, id_estagio) VALUES(" +
                 "?, ?, ?, ?, ?" +
                 ")";
