@@ -17,6 +17,29 @@ import java.util.List;
 
 public class EstagioDAO {
 
+    public void salvar(Estagio estagio) {
+        String sql = "INSERT INTO estagio (tipo, ambito, status, observacoes, id_discente, id_supervisor, id_coordenador_estagio, id_concedente, id_periodo) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection con = Conexao.getConexao();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, estagio.getTipo() != null ? estagio.getTipo().toString() : null);
+            ps.setString(2, estagio.getAmbito() != null ? estagio.getAmbito().toString() : null);
+            ps.setString(3, estagio.getStatus() != null ? estagio.getStatus().toString() : null);
+            ps.setString(4, estagio.getObservacoes());
+            ps.setInt(5, getIdDiscente(estagio));
+            ps.setInt(6, getIdSupervisor(estagio));
+            ps.setInt(7, getIdCoordenador(estagio));
+            ps.setInt(8, getIdConcedente(estagio));
+            ps.setInt(9, getIdPeriodo(estagio));
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 //    exemplo de metodo de consuDAlta que recebe um valor
 //    public void alunosPorEmpresa(String razaoSocial) {
 //        String sql = "SELECT p.nome, p.sobrenome, e.statusEstagio " +
@@ -108,6 +131,26 @@ public class EstagioDAO {
             }
         }
         return 0;
+    }
+
+    private int getIdDiscente(Estagio estagio) {
+        return estagio.getDiscente() != null ? estagio.getDiscente().getIdDiscente() : 0;
+    }
+
+    private int getIdSupervisor(Estagio estagio) {
+        return estagio.getSupervisorConcedente() != null ? estagio.getSupervisorConcedente().getIdSupervisor() : 0;
+    }
+
+    private int getIdCoordenador(Estagio estagio) {
+        return estagio.getCoordenadorEstagio() != null ? estagio.getCoordenadorEstagio().getIdCoordenadorEstagio() : 0;
+    }
+
+    private int getIdConcedente(Estagio estagio) {
+        return estagio.getConcedente() != null ? estagio.getConcedente().getIdConcedente() : 0;
+    }
+
+    private int getIdPeriodo(Estagio estagio) {
+        return estagio.getPeriodoLetivo() != null ? estagio.getPeriodoLetivo().getIdPeriodo() : 0;
     }
 
     public void discentesComEstagioAtivo() {
