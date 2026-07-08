@@ -10,30 +10,30 @@ import java.sql.Statement;
 
 public class estagioDAO {
 
-    // exemplo de metodo de consuDAlta que recebe um valor /CLAUDE PASSOU POR AQUI...
-    public void alunosPorEmpresa(String razaoSocial) {
-        String sql = "SELECT p.nome, p.sobrenome, e.statusEstagio " +
-                "FROM Estagio e " +
-                "JOIN Discente d ON e.idDiscente = d.idDiscente " +
-                "JOIN Pessoa p ON d.idPessoa = p.idPessoa " +
-                "JOIN Concedente c ON e.idConcedente = c.idConcedente " +
-                "WHERE c.razaoSocial LIKE ?";
-
-        try (Connection con = Conexao.getConexao();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, "%" + razaoSocial + "%");
-            try (ResultSet rs = ps.executeQuery()) {
-                System.out.println("\n--- Alunos que estagiam em: " + razaoSocial + " ---");
-                while (rs.next()) {
-                    System.out.printf("%s %s - Status: %s%n",
-                            rs.getString("nome"), rs.getString("sobrenome"), rs.getString("statusEstagio"));
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro ao consultar alunos por empresa: " + e.getMessage());
-        }
-    }
+//    exemplo de metodo de consuDAlta que recebe um valor
+//    public void alunosPorEmpresa(String razaoSocial) {
+//        String sql = "SELECT p.nome, p.sobrenome, e.statusEstagio " +
+//                "FROM Estagio e " +
+//                "JOIN Discente d ON e.idDiscente = d.idDiscente " +
+//                "JOIN Pessoa p ON d.idPessoa = p.idPessoa " +
+//                "JOIN Concedente c ON e.idConcedente = c.idConcedente " +
+//                "WHERE c.razaoSocial LIKE ?";
+//
+//        try (Connection con = Conexao.getConexao();
+//             PreparedStatement ps = con.prepareStatement(sql)) {
+//
+//            ps.setString(1, "%" + razaoSocial + "%");
+//            try (ResultSet rs = ps.executeQuery()) {
+//                System.out.println("\n--- Alunos que estagiam em: " + razaoSocial + " ---");
+//                while (rs.next()) {
+//                    System.out.printf("%s %s - Status: %s%n",
+//                            rs.getString("nome"), rs.getString("sobrenome"), rs.getString("statusEstagio"));
+//                }
+//            }
+//        } catch (SQLException e) {
+//            System.out.println("Erro ao consultar alunos por empresa: " + e.getMessage());
+//        }
+//    }
 
     public void discentesComEstagioAtivo() {
         String sql = "SELECT p.nome AS discente, d.matricula AS matricula, d.curso AS curso, " +
