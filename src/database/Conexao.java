@@ -6,24 +6,16 @@ import java.sql.SQLException;
 
 public class Conexao {
 
-    private static final String url = "jbdc:mysql://localhost:3306/estagio_facsi";
+    private static final String url = "jdbc:mysql://localhost:3306/estagio_facsi";
     private static final String user = "root";
     private static final String password = "root";
 
-    private static Connection conn;
-
-    public static Connection getConexao(){
-
+    // Toda vez que o método for chamado, ele agora retorna um novo DriverManager.getConnection
+    public static Connection getConexao() {
         try {
-            if (conn == null){
-                conn = DriverManager.getConnection(url, user, password);
-                return conn;
-            }else{
-                return conn;
-            }
+            return DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
-                e.printStackTrace();
-            return null;
+            throw new RuntimeException("Erro ao conectar com o banco de dados: " + e.getMessage());
         }
     }
 }

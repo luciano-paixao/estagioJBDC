@@ -5,11 +5,7 @@ import models.docente.Docente;
 
 public class CoordenadorEstagio {
 
-    // idDocente e idPessoa compoem, junto de idCoordenadorEstagio, a chave
-    // primaria composta da tabela e tambem integram a FK para Docente.
     private int idCoordenadorEstagio;
-    private int idDocente;
-    private int idPessoa;
     private String numeroPortaria;
     private LocalDate dataInicioVigencia;
     private LocalDate dataFimVigencia;
@@ -31,22 +27,6 @@ public class CoordenadorEstagio {
 
     public void setIdCoordenadorEstagio(int idCoordenadorEstagio) {
         this.idCoordenadorEstagio = idCoordenadorEstagio;
-    }
-
-    public int getIdDocente() {
-        return idDocente;
-    }
-
-    public void setIdDocente(int idDocente) {
-        this.idDocente = idDocente;
-    }
-
-    public int getIdPessoa() {
-        return idPessoa;
-    }
-
-    public void setIdPessoa(int idPessoa) {
-        this.idPessoa = idPessoa;
     }
 
     public String getNumeroPortaria() {
@@ -79,5 +59,11 @@ public class CoordenadorEstagio {
 
     public void setDocente(Docente docente) {
         this.docente = docente;
+    }
+
+
+    @Override
+    public String toString() {
+        return "CoordenadorEstagio #" + this.idCoordenadorEstagio + " - " + this.numeroPortaria;
     }
 }

@@ -70,4 +70,9 @@ public class Discente {
     public void setPeriodoLetivo(PeriodoLetivo periodoLetivo) {
         this.periodoLetivo = periodoLetivo;
     }
+
+    @Override
+    public String toString() {
+        return "Discente #" + this.idDiscente + " - " + this.pessoa.getNome() + " - " + this.matricula;
+    }
 }

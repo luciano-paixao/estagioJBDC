@@ -59,4 +59,9 @@ public class PeriodoLetivo {
     public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
+
+    @Override
+    public String toString() {
+        return "PeriodoLetivo #" + this.idPeriodo + " - " + this.periodo + " - " + this.ano;
+    }
 }
