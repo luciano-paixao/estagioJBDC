@@ -1,6 +1,6 @@
 package DAO;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.concedente.Concedente;
 import models.coordenadorEstagio.CoordenadorEstagio;
 import models.discente.Discente;

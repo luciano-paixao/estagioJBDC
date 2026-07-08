@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.concedente.Concedente;
 import models.pessoa.Pessoa;
 import models.supervisorConcedente.SupervisorConcedente;

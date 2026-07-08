@@ -1,6 +1,6 @@
 package DAO;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.discente.Discente;
 import models.discente.SituacaoDiscente;
 import models.periodoLetivo.PeriodoLetivo;

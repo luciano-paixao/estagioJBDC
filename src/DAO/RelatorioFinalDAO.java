@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.relatorioFinal.RelatorioFinal;
 
 public class RelatorioFinalDAO {
