@@ -9,9 +9,9 @@ public class Main {
             @Override
             public void run() {
                 // TESTE DISCENTE
-//                TelaCadastroDiscente tela = new TelaCadastroDiscente();        // Instancia a tela (carrega o visual e os componentes)
-//                DiscenteController controller = new DiscenteController(tela);  // Instancia o Controller para amarrar eventos (cliques nos botões)
-//                tela.setVisible(true);                                         // Torna a janela visível para o usuário
+                TelaCadastroDiscente tela = new TelaCadastroDiscente();        // Instancia a tela (carrega o visual e os componentes)
+                DiscenteController controller = new DiscenteController(tela);  // Instancia o Controller para amarrar eventos (cliques nos botões)
+                tela.setVisible(true);                                         // Torna a janela visível para o usuário
 
                 // TESTE PERIODO
 //                TelaCadastroPeriodo tela = new TelaCadastroPeriodo();
@@ -44,9 +44,9 @@ public class Main {
 //                tela.setVisible(true);
 
                 // TESTE ESTAGIO
-                TelaCadastroEstagio tela = new TelaCadastroEstagio();
-                EstagioController controller = new EstagioController(tela);
-                tela.setVisible(true);
+//                TelaCadastroEstagio tela = new TelaCadastroEstagio();
+//                EstagioController controller = new EstagioController(tela);
+//                tela.setVisible(true);
 
                 // TESTE SUPERVISOR
 //                TelaCadastroAproveitamento tela = new TelaCadastroAproveitamento();

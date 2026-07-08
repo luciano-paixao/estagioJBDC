@@ -6,14 +6,14 @@ public class PeriodoLetivo {
 
     private int idPeriodo;
     private int ano;
-    private Periodo periodo;
+    private int periodo;
     private LocalDate dataInicio;
     private LocalDate dataFim;
 
     public PeriodoLetivo() {
     }
 
-    public PeriodoLetivo(int ano, Periodo periodo, LocalDate dataInicio, LocalDate dataFim) {
+    public PeriodoLetivo(int ano, int periodo, LocalDate dataInicio, LocalDate dataFim) {
         this.ano = ano;
         this.periodo = periodo;
         this.dataInicio = dataInicio;
@@ -36,11 +36,11 @@ public class PeriodoLetivo {
         this.ano = ano;
     }
 
-    public Periodo getPeriodo() {
+    public int getPeriodo() {
         return periodo;
     }
 
-    public void setPeriodo(Periodo periodo) {
+    public void setPeriodo(int periodo) {
         this.periodo = periodo;
     }
 
