@@ -50,4 +50,13 @@ public class SupervisorConcedente {
     public void setRegistroProfissional(String registroProfissional) {
         this.registroProfissional = registroProfissional;
     }
+
+    @Override
+    public String toString() {
+        return "SupervisorConcedente{" +
+                "concedente: " + concedente.getAreaAtuacao() +
+                ", idSupervisor:  "+ idSupervisor +
+                ", Nome: " + concedente.getAreaAtuacao() +
+                '}';
+    }
 }

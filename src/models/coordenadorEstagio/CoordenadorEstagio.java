@@ -5,8 +5,6 @@ import models.docente.Docente;
 
 public class CoordenadorEstagio {
 
-    // idDocente e idPessoa compoem, junto de idCoordenadorEstagio, a chave
-    // primaria composta da tabela e tambem integram a FK para Docente.
     private int idCoordenadorEstagio;
     private int idDocente;
     private int idPessoa;
@@ -79,5 +77,14 @@ public class CoordenadorEstagio {
 
     public void setDocente(Docente docente) {
         this.docente = docente;
+    }
+
+
+    @Override
+    public String toString() {
+        return "CoordenadorEstagio{" +
+                "idCoordenadorEstagio: " + idCoordenadorEstagio +
+                ", numeroPortaria='" + numeroPortaria + '\'' +
+                '}';
     }
 }

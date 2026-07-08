@@ -80,4 +80,13 @@ public class Concedente {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    @Override
+    public String toString() {
+        return "Concedente{" +
+                "nome: '" + nome + '\'' +
+                ", cnpj: '" + cnpj + '\'' +
+                ", tipo: " + tipo +
+                '}';
+    }
 }

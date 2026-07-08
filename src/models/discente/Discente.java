@@ -70,4 +70,12 @@ public class Discente {
     public void setPeriodoLetivo(PeriodoLetivo periodoLetivo) {
         this.periodoLetivo = periodoLetivo;
     }
+
+    @Override
+    public String toString() {
+        return "Discente{" +
+                "Nome" + pessoa.getNome() +
+                "\n matricula" + getMatricula() +
+                '}';
+    }
 }
