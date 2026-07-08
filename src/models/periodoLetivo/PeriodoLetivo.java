@@ -62,9 +62,6 @@ public class PeriodoLetivo {
 
     @Override
     public String toString() {
-        return "PeriodoLetivo{" +
-                "periodo: " + periodo +
-                ", ano: " + ano +
-                '}';
+        return "PeriodoLetivo #" + this.idPeriodo + " - " + this.periodo + " - " + this.ano;
     }
 }

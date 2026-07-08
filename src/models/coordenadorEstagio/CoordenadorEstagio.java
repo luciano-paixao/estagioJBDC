@@ -82,9 +82,6 @@ public class CoordenadorEstagio {
 
     @Override
     public String toString() {
-        return "CoordenadorEstagio{" +
-                "idCoordenadorEstagio: " + idCoordenadorEstagio +
-                ", numeroPortaria='" + numeroPortaria + '\'' +
-                '}';
+        return "CoordenadorEstagio #" + this.idCoordenadorEstagio + " - " + this.numeroPortaria;
     }
 }
