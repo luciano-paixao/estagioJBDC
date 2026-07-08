@@ -6,8 +6,6 @@ import models.docente.Docente;
 public class CoordenadorEstagio {
 
     private int idCoordenadorEstagio;
-    private int idDocente;
-    private int idPessoa;
     private String numeroPortaria;
     private LocalDate dataInicioVigencia;
     private LocalDate dataFimVigencia;
@@ -29,22 +27,6 @@ public class CoordenadorEstagio {
 
     public void setIdCoordenadorEstagio(int idCoordenadorEstagio) {
         this.idCoordenadorEstagio = idCoordenadorEstagio;
-    }
-
-    public int getIdDocente() {
-        return idDocente;
-    }
-
-    public void setIdDocente(int idDocente) {
-        this.idDocente = idDocente;
-    }
-
-    public int getIdPessoa() {
-        return idPessoa;
-    }
-
-    public void setIdPessoa(int idPessoa) {
-        this.idPessoa = idPessoa;
     }
 
     public String getNumeroPortaria() {
