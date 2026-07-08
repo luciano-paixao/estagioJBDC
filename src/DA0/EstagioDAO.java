@@ -3,12 +3,11 @@ package DA0;
 import conexao.Conexao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class estagioDAO {
+public class EstagioDAO {
 
 //    exemplo de metodo de consuDAlta que recebe um valor
 //    public void alunosPorEmpresa(String razaoSocial) {

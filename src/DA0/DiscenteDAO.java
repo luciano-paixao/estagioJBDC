@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class discenteDAO {
+public class DiscenteDAO {
     public void cadastrarDiscente(PeriodoLetivo per, Pessoa p) {
         String sql = "INSERT INTO discente(matricula, situacao, curso, id_periodo, id_pessoa) VALUES (" +
                 "?, ?, ?, ?, ?" +

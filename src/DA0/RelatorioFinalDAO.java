@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import conexao.Conexao;
 import models.relatorioFinal.RelatorioFinal;
 
-public class relatorioFinalDAO {
+public class RelatorioFinalDAO {
     public void cadastrarRelatorioFinal(RelatorioFinal rel) {
         String sql = "INSERT INTO plano_atividade(arquivo, titulo, assinatura_discente, assinatura_supervisor, id_estagio) VALUES(" +
                 "?, ?, ?, ?, ?" +

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import conexao.Conexao;
 import models.planoAtividade.PlanoAtividade;
 
-public class planoAtividadeDAO {
+public class PlanoAtividadeDAO {
     public void cadastrarPlanoAtividade(PlanoAtividade pl) {
         String sql = "INSERT INTO plano_atividade(arquivo, id_termo_compromisso) VALUES(" +
                 "?, ?" +

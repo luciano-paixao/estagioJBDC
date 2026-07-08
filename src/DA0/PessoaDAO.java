@@ -3,12 +3,11 @@ package DA0;
 import conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import models.pessoa.Pessoa;
 
-public class pessoaDAO {
+public class PessoaDAO {
     public void cadastrarPessoa(Pessoa p) {
         String sql = "INSERT INTO pessoa(nome, cpf, email, data_nascimento, sexo, cargo) VALUES (" +
                 "?, ?, ?, ?, ?, ?" +

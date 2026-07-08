@@ -1,7 +1,6 @@
 package DA0;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -10,7 +9,7 @@ import models.concedente.Concedente;
 import models.endereco.Endereco;
 import models.pessoa.Pessoa;
 
-public class concedenteDAO {
+public class ConcedenteDAO {
     public void cadastrarConcedente(Concedente c, Endereco en, Pessoa p) {
         String sql = "INSERT INTO concedente(nome, cnpj, tipo, area_atuacao, id_endereco, id_representante) VALUES (" +
                 "?, ?, ?, ?, ?, ?" +
