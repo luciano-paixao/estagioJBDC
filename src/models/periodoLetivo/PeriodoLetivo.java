@@ -59,4 +59,12 @@ public class PeriodoLetivo {
     public void setDataFim(LocalDate dataFim) {
         this.dataFim = dataFim;
     }
+
+    @Override
+    public String toString() {
+        return "PeriodoLetivo{" +
+                "periodo: " + periodo +
+                ", ano: " + ano +
+                '}';
+    }
 }
