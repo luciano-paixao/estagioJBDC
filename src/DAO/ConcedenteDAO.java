@@ -54,8 +54,14 @@ public class ConcedenteDAO {
                 concedente.setCnpj(rs.getString("cnpj"));
 
                 String tipo = rs.getString("tipo");
+
                 if (tipo != null) {
-                    concedente.setTipo(TipoConcedente.valueOf(tipo));
+                    // Mapeia o erro de digitação do banco para a enum correta
+                    if (tipo.equals("NSTITUICAO_PUBLICA")) {
+                        concedente.setTipo(TipoConcedente.INSTITUICAO_PUBLICA);
+                    } else {
+                        concedente.setTipo(TipoConcedente.valueOf(tipo));
+                    }
                 }
 
                 concedente.setAreaAtuacao(rs.getString("area_atuacao"));
