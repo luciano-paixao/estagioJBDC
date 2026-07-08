@@ -6,7 +6,10 @@ import models.termoCompromisso.TermoCompromisso;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlanoAtividadeDAO {
 
@@ -27,5 +30,39 @@ public class PlanoAtividadeDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<PlanoAtividade> listarTodos() {
+        String sql = "SELECT * FROM plano_atividade";
+        List<PlanoAtividade> planos = new ArrayList<>();
+
+        try (Connection con = Conexao.getConexao();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                PlanoAtividade plano = new PlanoAtividade();
+                plano.setIdPlanoAtividade(getInt(rs, "id_plano_atividade", "id_plano"));
+                plano.setAreaAtuacao(rs.getString("area_atuacao"));
+                plano.setJustificativa(rs.getString("justificativa"));
+                plano.setObjetivos(rs.getString("objetivos"));
+                plano.setPlanoAtividades(rs.getString("plano_atividades"));
+                planos.add(plano);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return planos;
+    }
+
+    private int getInt(ResultSet rs, String... columnNames) throws SQLException {
+        for (String columnName : columnNames) {
+            try {
+                return rs.getInt(columnName);
+            } catch (SQLException ignored) {
+            }
+        }
+        return 0;
     }
 }
