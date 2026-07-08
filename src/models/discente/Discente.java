@@ -73,9 +73,6 @@ public class Discente {
 
     @Override
     public String toString() {
-        return "Discente{" +
-                "Nome" + pessoa.getNome() +
-                "\n matricula" + getMatricula() +
-                '}';
+        return "Discente #" + this.idDiscente + " - " + this.pessoa.getNome() + " - " + this.matricula;
     }
 }

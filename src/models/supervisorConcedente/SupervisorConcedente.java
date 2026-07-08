@@ -53,10 +53,6 @@ public class SupervisorConcedente {
 
     @Override
     public String toString() {
-        return "SupervisorConcedente{" +
-                "concedente: " + concedente.getAreaAtuacao() +
-                ", idSupervisor:  "+ idSupervisor +
-                ", Nome: " + concedente.getAreaAtuacao() +
-                '}';
+        return "SupervisorConcedente #" + this.idSupervisor + " - " + this.concedente.getAreaAtuacao() + " - " + this.idSupervisor + " - " + this.concedente.getAreaAtuacao();
     }
 }

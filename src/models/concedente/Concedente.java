@@ -83,10 +83,6 @@ public class Concedente {
 
     @Override
     public String toString() {
-        return "Concedente{" +
-                "nome: '" + nome + '\'' +
-                ", cnpj: '" + cnpj + '\'' +
-                ", tipo: " + tipo +
-                '}';
+        return "Concedente #" + this.idConcedente + " - " + this.nome + " - " + this.cnpj + " - " + this.tipo;
     }
 }
