@@ -2,10 +2,11 @@ package models.termoCompromisso;
 
 import models.estagio.Estagio;
 
+import java.time.LocalDate;
+
 public class TermoCompromisso {
 
     private int idTermo;
-    private String numeroTermo;
     private HorasSemanais horasSemanais;
     private int horasTotais;
     private Double remuneracao;
@@ -14,14 +15,16 @@ public class TermoCompromisso {
     private boolean assinaturaCoordenador;
     private boolean assinaturaConcedente;
     private Estagio estagio;
+    private LocalDate dataInicio;
+    private LocalDate dataFim;
+    private LocalDate dataRecesso;
 
     public TermoCompromisso() {
     }
 
-    public TermoCompromisso(String numeroTermo, HorasSemanais horasSemanais, int horasTotais, Double remuneracao,
-                             Double auxTransporte, boolean assinaturaDiscente, boolean assinaturaCoordenador,
-                             boolean assinaturaConcedente, Estagio estagio) {
-        this.numeroTermo = numeroTermo;
+    public TermoCompromisso(HorasSemanais horasSemanais, int horasTotais, Double remuneracao, Double auxTransporte,
+                            boolean assinaturaDiscente, boolean assinaturaCoordenador, boolean assinaturaConcedente,
+                            Estagio estagio, LocalDate dataInicio, LocalDate dataFim, LocalDate dataRecesso) {
         this.horasSemanais = horasSemanais;
         this.horasTotais = horasTotais;
         this.remuneracao = remuneracao;
@@ -30,6 +33,9 @@ public class TermoCompromisso {
         this.assinaturaCoordenador = assinaturaCoordenador;
         this.assinaturaConcedente = assinaturaConcedente;
         this.estagio = estagio;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.dataRecesso = dataRecesso;
     }
 
     public int getIdTermo() {
@@ -38,14 +44,6 @@ public class TermoCompromisso {
 
     public void setIdTermo(int idTermo) {
         this.idTermo = idTermo;
-    }
-
-    public String getNumeroTermo() {
-        return numeroTermo;
-    }
-
-    public void setNumeroTermo(String numeroTermo) {
-        this.numeroTermo = numeroTermo;
     }
 
     public HorasSemanais getHorasSemanais() {
@@ -110,5 +108,29 @@ public class TermoCompromisso {
 
     public void setEstagio(Estagio estagio) {
         this.estagio = estagio;
+    }
+
+    public LocalDate getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(LocalDate dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public LocalDate getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(LocalDate dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public LocalDate getDataRecesso() {
+        return dataRecesso;
+    }
+
+    public void setDataRecesso(LocalDate dataRecesso) {
+        this.dataRecesso = dataRecesso;
     }
 }

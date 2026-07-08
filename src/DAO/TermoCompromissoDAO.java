@@ -5,7 +5,6 @@ import models.endereco.Endereco;
 import models.estagio.Estagio;
 import models.termoCompromisso.TermoCompromisso;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -25,10 +24,9 @@ public class TermoCompromissoDAO {
             insertPs.setBoolean(6, true);
             insertPs.setBoolean(7, true);
 
-            // PENDENTE
-            insertPs.setDate(8, Date.valueOf("2025-12-25"));
-            insertPs.setDate(9, Date.valueOf("2025-12-25"));
-            insertPs.setDate(10, Date.valueOf("2025-12-25"));
+            insertPs.setDate(8, java.sql.Date.valueOf(termo.getDataInicio()));
+            insertPs.setDate(9, java.sql.Date.valueOf(termo.getDataFim()));
+            insertPs.setDate(10, java.sql.Date.valueOf(termo.getDataRecesso()));
 
             insertPs.setInt(11, es.getIdEstagio());
             insertPs.setInt(12, en.getIdEndereco());
