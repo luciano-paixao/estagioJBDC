@@ -1,17 +1,18 @@
 package controller;
 
+import models.estagio.Estagio;
 import view.TelaCadastroTermoCompromisso;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.List;
 
 public class TermoCompromissoController {
 
     private TelaCadastroTermoCompromisso view;
-
     private TermoCompromissoDAO termoDAO;
     private EstagioDAO estagioDAO;
 
-    public TermoCompromissoController(TelaDocumentoTermoCompromisso view) {
+    public TermoCompromissoController(TelaCadastroTermoCompromisso view) {
         this.view = view;
         this.termoDAO = new TermoCompromissoDAO();
         this.estagioDAO = new EstagioDAO();
@@ -25,7 +26,7 @@ public class TermoCompromissoController {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
-                    String estagioSelecionado = (String) e.getItem();
+                    Estagio estagioSelecionado = (Estagio) e.getItem();
                     preencherDadosAutomaticos(estagioSelecionado);
                 }
             }
@@ -36,29 +37,33 @@ public class TermoCompromissoController {
     }
 
     private void carregarEstagiosNoCombo() {
-        // Futuramente, isso virará de um EstagioService.listarTodos();
-        view.getCbEstagio().addItem("Selecione...");
-        view.getCbEstagio().addItem("Estágio #101 - Maria Silva");
-        view.getCbEstagio().addItem("Estágio #102 - João Souza");
+        try {
+            view.getCbEstagio().removeAllItems();
+
+            // Busca os estágios no banco (o ideal seria listar apenas os sem termo ainda)
+            List<Estagio> estagios = estagioDAO.listarTodos();
+
+            for (Estagio estagio : estagios) {
+                view.getCbEstagio().addItem(estagio);
+            }
+        } catch (Exception e) {
+            view.exibirMensagem("Erro ao buscar estágios: " + e.getMessage());
+        }
     }
 
     private void preencherDadosAutomaticos(String identificadorEstagio) {
-        if (identificadorEstagio.equals("Selecione...")) {
+        if (estagio == null) {
             limparDadosAutomaticos();
             return;
         }
 
-        // Simulando o retorno do banco para ilustrar o preenchimento:
-        if (identificadorEstagio.contains("Maria")) {
-            view.setNomeAluno("Maria Silva");
-            view.setCursoAluno("Sistemas de Informação");
-            view.setNomeConcedente("Tech Solutions S/A");
-            view.setRepresentanteConcedente("Carlos Mendes");
-        } else if (identificadorEstagio.contains("João")) {
-            view.setNomeAluno("João Souza");
-            view.setCursoAluno("Ciência da Computação");
-            view.setNomeConcedente("Inova Web LTDA");
-            view.setRepresentanteConcedente("Ana Paula Rocha");
+        try {
+            view.setNomeAluno(estagio.getDiscente().getPessoa().getNome());
+            view.setCursoAluno(estagio.getDiscente().getCurso());
+            view.setNomeConcedente(estagio.getConcedente().getNome());
+            view.setRepresentanteConcedente(estagio.getConcedente().getRepresentante().getNome());
+        } catch (Exception e) {
+            view.exibirMensagem("Aviso: Dados incompletos no estágio selecionado.");
         }
     }
 

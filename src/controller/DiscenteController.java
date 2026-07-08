@@ -3,10 +3,10 @@ package controller;
 import models.discente.Discente;
 import models.discente.SituacaoDiscente;
 import models.pessoa.Pessoa;
+import models.pessoa.Sexo;
 import models.periodoLetivo.PeriodoLetivo;
 import view.TelaCadastroDiscente;
-
-// import service.DiscenteService;
+import view.PainelPessoa;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,11 +14,14 @@ import java.awt.event.ActionListener;
 public class DiscenteController {
 
     private TelaCadastroDiscente view;
-    // private DiscenteService service;
+
+    private DiscenteDAO discenteDAO;
+    private PessoaDAO pessoaDAO;
 
     public DiscenteController(TelaCadastroDiscente view) {
         this.view = view;
-        // this.service = new DiscenteService();
+        this.discenteDAO = new DiscenteDAO();
+        this.pessoaDAO = new PessoaDAO();
 
         inicializarEventos();
         carregarDadosIniciais();
@@ -41,6 +44,7 @@ public class DiscenteController {
         // Aqui, futuramente, você chamaria um PeriodoLetivoService para listar do banco.
         // Por enquanto, criamos um "mock" (dado falso) apenas para testar a interface.
         PeriodoLetivo periodoMock = new PeriodoLetivo();
+        view.adicionarPeriodoLetivo(periodoMock);
         // Supondo que sua classe PeriodoLetivo tenha métodos como setAno e setPeriodo:
         // periodoMock.setAno(2026);
         // periodoMock.setPeriodo(1);
@@ -50,16 +54,23 @@ public class DiscenteController {
 
     private void salvarDiscente() {
         try {
-            // Resgatar os dados da View
-            String nome = view.getNomePessoa();
-            String cpf = view.getCpfPessoa();
+            // Resgatar dados de pessoa
+            PainelPessoa painelPessoa = view.getPainelPessoa();
+
+            String nome = view.getPainelPessoa().getNome();
+            String cpf = view.getPainelPessoa().getCpf();
+            String email = painelPessoa.getEmail();
+            String dataNascimento = painelPessoa.getDataNascimento();
+            Sexo sexo = painelPessoa.getSexoSelecionado();
+            String cargo = painelPessoa.getCargo();
+
+            // Resgatar dados de discente
             String matricula = view.getMatricula();
             String curso = view.getCurso();
             SituacaoDiscente situacao = view.getSituacaoSelecionada();
             PeriodoLetivo periodo = view.getPeriodoLetivoSelecionado();
 
-            // Validar, de maneira básica, campos obrigatórios
-            if (nome.isEmpty() || matricula.isEmpty()) {
+            if (nome.trim().isEmpty() || matricula.trim().isEmpty()) {
                 view.exibirMensagem("Preencha os campos obrigatórios (Nome e Matrícula).");
                 return;
             }
