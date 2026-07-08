@@ -8,9 +8,7 @@ import java.awt.*;
 
 public class TelaCadastroDiscente extends JFrame {
 
-    // Campos simplificados para representar os dados de Pessoa
-    private JTextField txtNomePessoa;
-    private JTextField txtCpfPessoa;
+    private PainelPessoa painelPessoa;
 
     // Campos específicos de Discente
     private JTextField txtMatricula;
@@ -23,80 +21,74 @@ public class TelaCadastroDiscente extends JFrame {
 
     public TelaCadastroDiscente() {
         setTitle("Cadastro de Discente");
-        setSize(450, 350);
+        setSize(500, 525);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         inicializarComponentes();
     }
 
     private void inicializarComponentes() {
-        JPanel painelFormulario = new JPanel(new GridLayout(6, 2, 10, 10));
-        painelFormulario.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        painelPessoa = new PainelPessoa();
 
-        txtNomePessoa = new JTextField();
-        txtCpfPessoa = new JTextField();
+        JPanel painelDiscente = new JPanel(new GridLayout(4, 2, 10, 10));
+
         txtMatricula = new JTextField();
         txtCurso = new JTextField();
-
-        // Inicializa carregando automaticamente valores do Enum SituacaoDiscente
         cbSituacao = new JComboBox<>(SituacaoDiscente.values());
-
-        // Inicializa vazio para ser preenchido via Controller futuramente
         cbPeriodoLetivo = new JComboBox<>();
 
-        painelFormulario.add(new JLabel("Nome (Pessoa):"));
-        painelFormulario.add(txtNomePessoa);
+        painelDiscente.add(new JLabel("Matrícula:"));
+        painelDiscente.add(txtMatricula);
 
-        painelFormulario.add(new JLabel("CPF (Pessoa):"));
-        painelFormulario.add(txtCpfPessoa);
+        painelDiscente.add(new JLabel("Curso:"));
+        painelDiscente.add(txtCurso);
 
-        painelFormulario.add(new JLabel("Matrícula:"));
-        painelFormulario.add(txtMatricula);
+        painelDiscente.add(new JLabel("Situação:"));
+        painelDiscente.add(cbSituacao);
 
-        painelFormulario.add(new JLabel("Curso:"));
-        painelFormulario.add(txtCurso);
-
-        painelFormulario.add(new JLabel("Situação:"));
-        painelFormulario.add(cbSituacao);
-
-        painelFormulario.add(new JLabel("Período Letivo:"));
-        painelFormulario.add(cbPeriodoLetivo);
+        painelDiscente.add(new JLabel("Período Letivo:"));
+        painelDiscente.add(cbPeriodoLetivo);
 
         JPanel painelBotoes = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         btnSalvar = new JButton("Salvar");
         btnCancelar = new JButton("Cancelar");
-
         painelBotoes.add(btnCancelar);
         painelBotoes.add(btnSalvar);
 
-        setLayout(new BorderLayout());
-        add(painelFormulario, BorderLayout.CENTER);
+        setLayout(new BorderLayout(15, 15));
+
+        // Contêiner que agrupa os painéis de Pessoa e Discente
+        JPanel containerCentral = new JPanel(new BorderLayout());
+        containerCentral.add(painelPessoa, BorderLayout.NORTH);
+        containerCentral.add(painelDiscente, BorderLayout.CENTER);
+
+        containerCentral.setBorder(BorderFactory.createEmptyBorder(20, 15, 10, 15));
+
+        add(containerCentral, BorderLayout.CENTER);
         add(painelBotoes, BorderLayout.SOUTH);
     }
 
-    // Getters para o Controller
-    public String getNomePessoa() { return txtNomePessoa.getText(); }
-    public String getCpfPessoa() { return txtCpfPessoa.getText(); }
+    // ==========================================
+    // GETTERS PARA O CONTROLLER
+    // ==========================================
+
+    public PainelPessoa getPainelPessoa() { return painelPessoa; }
     public String getMatricula() { return txtMatricula.getText(); }
     public String getCurso() { return txtCurso.getText(); }
     public SituacaoDiscente getSituacaoSelecionada() { return (SituacaoDiscente) cbSituacao.getSelectedItem(); }
     public PeriodoLetivo getPeriodoLetivoSelecionado() { return (PeriodoLetivo) cbPeriodoLetivo.getSelectedItem(); }
 
-    // Metodo para o Controller popular o ComboBox de Período Letivo
-    public void adicionarPeriodoLetivo(PeriodoLetivo periodo) {
-        cbPeriodoLetivo.addItem(periodo);
-    }
-
     public JButton getBtnSalvar() { return btnSalvar; }
     public JButton getBtnCancelar() { return btnCancelar; }
+
+    public void adicionarPeriodoLetivo(PeriodoLetivo periodo) { cbPeriodoLetivo.addItem(periodo); }
 
     public void exibirMensagem(String mensagem) {
         JOptionPane.showMessageDialog(this, mensagem);
     }
 
     public void limparCampos() {
-        txtNomePessoa.setText("");
-        txtCpfPessoa.setText("");
+        painelPessoa.limparCampos();
         txtMatricula.setText("");
         txtCurso.setText("");
         cbSituacao.setSelectedIndex(0);
