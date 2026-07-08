@@ -7,14 +7,13 @@ import java.sql.SQLException;
 import conexao.Conexao;
 import models.planoAtividade.PlanoAtividade;
 
-public class planoAtividadeDAO {
+public class PlanoAtividadeDAO {
     public void cadastrarPlanoAtividade(PlanoAtividade pl) {
         String sql = "INSERT INTO plano_atividade(arquivo, id_termo_compromisso) VALUES(" +
                 "?, ?" +
                 ")";
-        try(Connection con = Conexao.getConexao()) {
-
-            PreparedStatement insertPs = con.prepareStatement(sql);
+        try(Connection con = Conexao.getConexao();
+            PreparedStatement insertPs = con.prepareStatement(sql)) {
 
             insertPs.setString(1, pl.getArquivo());
             // Corrigido: antes estava repetindo pl.arquivo para o id

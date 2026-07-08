@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class estagioDAO {
+public class EstagioDAO {
 
     //exemplo de metodo de consulta
     public void empresasComMaisEstagiarios() {

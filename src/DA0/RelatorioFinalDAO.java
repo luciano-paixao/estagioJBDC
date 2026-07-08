@@ -7,14 +7,13 @@ import java.sql.SQLException;
 import conexao.Conexao;
 import models.relatorioFinal.RelatorioFinal;
 
-public class relatorioFinalDAO {
+public class RelatorioFinalDAO {
     public void cadastrarRelatorioFinal(RelatorioFinal rel) {
         String sql = "INSERT INTO plano_atividade(arquivo, titulo, assinatura_discente, assinatura_supervisor, id_estagio) VALUES(" +
                 "?, ?, ?, ?, ?" +
                 ")";
-        try(Connection con = Conexao.getConexao()) {
-
-            PreparedStatement insertPs = con.prepareStatement(sql);
+        try(Connection con = Conexao.getConexao();
+            PreparedStatement insertPs = con.prepareStatement(sql)) {
 
             insertPs.setString(1, rel.getArquivo());
             insertPs.setString(2, rel.getTitulo());
