@@ -1,4 +1,4 @@
-package entity;
+package DA0;
 
 import conexao.Conexao;
 import java.sql.Connection;
@@ -14,13 +14,15 @@ public class pessoaDAO {
                 "?, ?, ?, ?, ?, ?" +
                 ")";
 
-        try(PreparedStatement insertPs = conexao.prepareStatement(sql)) {
+        try(Connection con = Conexao.getConexao()) {
+
+            PreparedStatement insertPs = con.prepareStatement(sql);
 
             insertPs.setString(1, p.getNome());
             insertPs.setString(2, p.getCpf());
             insertPs.setString(3, p.getEmail());
-            insertPs.setDate(4, java.sql.Date.valueOf(p.getDataNasc()));
-            insertPs.setString(5, p.getSexo());
+            insertPs.setDate(4, java.sql.Date.valueOf(p.getDataNascimento()));
+            insertPs.setString(5, p.getSexo().toString());
             insertPs.setString(6, p.getCargo());
 
             int insertCount = insertPs.executeUpdate();
