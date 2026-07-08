@@ -1,6 +1,6 @@
 package DAO;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.periodoLetivo.PeriodoLetivo; // Ajuste o import conforme o seu projeto
 import java.sql.Connection;
 import java.sql.PreparedStatement;

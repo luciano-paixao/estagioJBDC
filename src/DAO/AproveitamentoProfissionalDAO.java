@@ -1,6 +1,6 @@
 package DAO;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.aproveitamentoProfissional.AproveitamentoProfissional;
 import models.aproveitamentoProfissional.CondicaoProfissional;
 import models.aproveitamentoProfissional.StatusDeferimento;

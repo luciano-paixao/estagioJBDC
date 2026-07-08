@@ -1,6 +1,6 @@
 package DAO;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.endereco.Endereco;
 import models.estagio.Estagio;
 import models.termoCompromisso.HorasSemanais;

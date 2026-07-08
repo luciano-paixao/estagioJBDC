@@ -1,6 +1,6 @@
 package DAO;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.planoAtividade.PlanoAtividade;
 import models.termoCompromisso.TermoCompromisso;
 

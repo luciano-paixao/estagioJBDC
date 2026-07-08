@@ -1,6 +1,6 @@
 package DAO; // Corrigi o DA0 (com zero) para dao
 
-import conexao.Conexao;
+import database.Conexao;
 import models.docente.Docente; // Importe o seu model de Docente aqui
 import models.docente.Titulacao;
 import models.pessoa.Pessoa;

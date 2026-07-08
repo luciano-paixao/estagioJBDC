@@ -1,6 +1,6 @@
 package DAO;
 
-import conexao.Conexao;
+import database.Conexao;
 import models.apoliceSeguro.ApoliceSeguro;
 import models.apoliceSeguro.ResponsavelContratacao;
 import models.estagio.Estagio;
